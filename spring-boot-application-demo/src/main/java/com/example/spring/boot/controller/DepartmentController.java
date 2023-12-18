@@ -1,6 +1,7 @@
 package com.example.spring.boot.controller;
 
 import com.example.spring.boot.entity.Department;
+import com.example.spring.boot.error.DepartmentNotFoundException;
 import com.example.spring.boot.service.DepartmentService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -30,7 +31,7 @@ public class DepartmentController {
         return departmentService.fetchDepartmentList();
     }
     @GetMapping("/departments/{departmentId}")
-    public Department fetchDepartmentById(@PathVariable("departmentId") Long departmentId) {
+    public Department fetchDepartmentById(@PathVariable("departmentId") Long departmentId) throws DepartmentNotFoundException {
         LOGGER.info("Inside fetchDepartmentById() of DepartmentController.");
         return departmentService.fetchDepartmentById(departmentId);
     }
