@@ -21,6 +21,12 @@ spring:
 welcome:
   message: '"Welcome, Good Day :) "'
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include:"*"
+
 ---
 
 spring:
