@@ -1,10 +1,50 @@
 server:
   port: 9191
+
 spring:
+  profiles:
+    active: DEV
+
+---
+
+spring:
+  profiles: DEV
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: Kale@333
     url: jdbc:mysql://localhost:3306/dcbapp
+    username: user
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: '"Welcome, Good Day :) "'
+
+---
+
+spring:
+  profiles: QA
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Kale@333
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    username: user
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+welcome:
+  message: '"Welcome, Good Day :) "'
+
+---
+
+spring:
+  profiles: PROD
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Kale@333
+    url: jdbc:mysql://localhost:3306/dcbapp-prod
     username: user
   jpa:
     hibernate:
